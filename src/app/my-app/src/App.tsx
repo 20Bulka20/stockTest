@@ -12,10 +12,7 @@ import {
   Button,
   Container,
   Flex,
-  List,
-  ListItem,
 } from "@chakra-ui/react";
-import "./App.css";
 
 function App() {
   const inputRef = useRef<HTMLInputElement>(null);
