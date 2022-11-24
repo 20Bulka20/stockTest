@@ -12,5 +12,5 @@
 - Go to
   **cd stockTest/src**
 - and fulfill:
-  **docker build -t stock-app .**
-  **docker run -it --rm -p 8080:8080 stock-app**
+  * **docker build -t stock-app .**
+  * **docker run -it --rm -p 8080:8080 stock-app**
