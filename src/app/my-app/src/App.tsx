@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setQuote } from "./stockSlice";
 import {
   ChakraProvider,
+  Box,
   FormLabel,
   Input,
   FormControl,
@@ -20,7 +21,6 @@ function App() {
   const inputRef = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
   const dataStock = useSelector((state: any) => state.stock.quote);
-  console.log(dataStock);
   const postData = (value: string) => {
     const stockData = {
       stockTickerSymbol: value,
@@ -46,24 +46,9 @@ function App() {
       dataStock.constructor === Object
     ) {
       const dataStockEntries = Object.entries(dataStock);
-      console.log("dataStockEntries", dataStockEntries);
-
-      return (
-        <List marginTop="40px">
-          {dataStockEntries.map((item, index) => {
-            return (
-              <ListItem
-                width="350px"
-                marginBottom="10px"
-                key={index}
-                textAlign="center"
-              >
-                {`${item[0]}:  ${item[1]}`}
-              </ListItem>
-            );
-          })}
-        </List>
-      );
+      const currentPrice =
+        dataStockEntries.filter((item) => item[0] === "c")[0][1] + "";
+      return <Box>Current Price: ${currentPrice}</Box>;
     } else return <></>;
   };
 
